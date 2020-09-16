@@ -1,11 +1,11 @@
 import React from 'react';
-import chalk_slug from '../../assets/chalk_slug.png'
-import './App.css';
+import ChalkSlug from '../ChalkSlug/ChalkSlug'
+import './App.scss';
 
 function App() {
   return (
     <main className="App">
-      <img className="App-Logo" src={chalk_slug} alt='a chalk slug'/>
+      <ChalkSlug />
     </main>
   );
 }
