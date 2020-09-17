@@ -7,7 +7,7 @@ const TextBubble = () => {
   const [request, setRequest] = useState({
     solo: false,
     withOthers: false,
-    participants: 1,
+    participants: 0,
     type: ''
   })
 
