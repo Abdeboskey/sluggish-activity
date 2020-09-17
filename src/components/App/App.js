@@ -1,10 +1,10 @@
 import React from 'react';
 import ChalkSlug from '../ChalkSlug/ChalkSlug'
-import './App.scss';
+import classes from './App.module.scss';
 
 function App() {
   return (
-    <main className="App">
+    <main className={classes.App}>
       <ChalkSlug />
     </main>
   );
