@@ -12,6 +12,8 @@ const TextBubble = () => {
     type: ''
   })
 
+  // to pass hook methods, maybe you need to build a local method that keeps it scoped here, and pass the new method?
+
   const suggestActivity = async (event) => {
     event.preventDefault()
     setLoading(true)
@@ -103,8 +105,22 @@ const TextBubble = () => {
         </form>
       )}
       {loading && <p>hmmmmmm...</p>}
-      {activity.activity && 
-        <h3>What if you {activity.activity}?</h3>
+      {(activity.activity && !loading) &&
+        <>
+          <h3>What if you {activity.activity.toLowerCase()}?</h3>
+          <button>Thanks! I'll try that.</button>
+          {activity.activity.includes('stargazing') && 
+            <button>Can we do that together?</button>}
+          <button onClick={suggestActivity}>Can you suggest something else?</button>
+          <button onClick={() => {
+            setForm({
+              solo: false,
+              withOthers: false,
+              type: "",
+            })
+            setActivity({})
+          }}>Can I start over?</button>
+        </>
       }
       {(activity.error || error.error )&& <h3>I'm sorry, {activity.error || error.error}</h3>}
     </section>
