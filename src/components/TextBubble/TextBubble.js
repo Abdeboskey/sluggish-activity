@@ -6,7 +6,7 @@ const TextBubble = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [activity, setActivity] = useState({})
-  const [request, setRequest] = useState({
+  const [form, setForm] = useState({
     solo: false,
     withOthers: false,
     type: ''
@@ -15,9 +15,9 @@ const TextBubble = () => {
   const suggestActivity = async (event) => {
     event.preventDefault()
     setLoading(true)
-    const type = request.type === 'any' ? '' : request.type
+    const type = form.type === 'any' ? '' : form.type
     try {
-      const activity = await getActivity(request.withOthers, type)
+      const activity = await getActivity(form.withOthers, type)
       setTimeout(() => {
         setActivity({...activity})
         setLoading(false)
@@ -33,12 +33,12 @@ const TextBubble = () => {
       <h2>Oh, Hi friend!</h2>
       {!activity.activity && (
         <form onSubmit={suggestActivity}>
-          {(!request.solo && !request.withOthers) &&
+          {(!form.solo && !form.withOthers) &&
           <h3>
             Would you like to do something by yourself <br />
             or would you like some company?
           </h3>}
-          {(request.solo || request.withOthers) &&
+          {(form.solo || form.withOthers) &&
           <h3>
             What kind of activity would you like to do?
           </h3>}
@@ -47,11 +47,11 @@ const TextBubble = () => {
             <input
               name="solo"
               type="checkbox"
-              checked={request.solo}
+              checked={form.solo}
               onChange={() =>
-                setRequest({
-                  ...request,
-                  solo: !request.solo,
+                setForm({
+                  ...form,
+                  solo: !form.solo,
                   withOthers: false,
                 })
               }
@@ -63,25 +63,25 @@ const TextBubble = () => {
             <input
               name="withOthers"
               type="checkbox"
-              checked={request.withOthers}
+              checked={form.withOthers}
               onChange={() =>
-                setRequest({
-                  ...request,
+                setForm({
+                  ...form,
                   solo: false,
-                  withOthers: !request.withOthers,
+                  withOthers: !form.withOthers,
                 })
               }
             />
           </label>
           <br />
-          {(request.solo || request.withOthers) && (
+          {(form.solo || form.withOthers) && (
             <label htmlFor="type">
               Type of Activity:
               <select 
                 name="type" 
-                value={request.type} 
-                onChange={event => setRequest({
-                  ...request,
+                value={form.type} 
+                onChange={event => setForm({
+                  ...form,
                   type: event.target.value
                 })}>
                 <option value="">Please choose one</option>
@@ -99,11 +99,13 @@ const TextBubble = () => {
             </label>
           )}
           <br />
-          {request.type && <button type="submit">Suggest Activity</button>}
+          {form.type && <button type="submit">Suggest Activity</button>}
         </form>
       )}
       {loading && <p>hmmmmmm...</p>}
-      {activity.activity && <h3>What if you {activity.activity}?</h3>}
+      {activity.activity && 
+        <h3>What if you {activity.activity}?</h3>
+      }
       {(activity.error || error.error )&& <h3>I'm sorry, {activity.error || error.error}</h3>}
     </section>
   );
