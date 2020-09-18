@@ -18,12 +18,14 @@ const TextBubble = () => {
     const type = request.type === 'any' ? '' : request.type
     try {
       const activity = await getActivity(request.withOthers, type)
-      setActivity({...activity})
+      setTimeout(() => {
+        setActivity({...activity})
+        setLoading(false)
+      }, 700)
     } catch (error) {
       setActivity({})
       setError(error.error)
     }
-    setLoading(false)
   }
 
   return (
