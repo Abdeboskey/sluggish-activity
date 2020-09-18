@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import classes from './TextBubble.module.scss'
+import { getActivity } from '../../ApiCalls'
 
 const TextBubble = () => {
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const [activity, setActivity] = useState({})
   const [request, setRequest] = useState({
     solo: false,
@@ -11,11 +13,24 @@ const TextBubble = () => {
     type: ''
   })
 
+  const suggestActivity = async (event) => {
+    event.preventDefault()
+    setLoading(true)
+    try {
+      const activity = await getActivity(request.participants, request.type)
+      setActivity({...activity})
+    } catch (error) {
+      setActivity({})
+      setError(error.error)
+    }
+    setLoading(false)
+  }
+
   return (
     <section className={classes.TextBubble}>
       <h2>Oh, Hi friend!</h2>
       {!activity.activity && (
-        <form>
+        <form onSubmit={suggestActivity}>
           {(!request.solo && !request.withOthers) &&
           <h3>
             Would you like to do something by yourself <br />
@@ -36,6 +51,7 @@ const TextBubble = () => {
                   ...request,
                   solo: !request.solo,
                   withOthers: false,
+                  participants: 0
                 })
               }
             />
@@ -86,7 +102,7 @@ const TextBubble = () => {
                   type: event.target.value
                 })}>
                 <option value="">Please choose one</option>
-                <option value="any">Any</option>
+                <option value="">Any</option>
                 <option value="education">Education</option>
                 <option value="recreational">Recreational</option>
                 <option value="social">Social</option>
@@ -100,11 +116,12 @@ const TextBubble = () => {
             </label>
           )}
           <br />
-          {request.type && <button>Suggest Activity</button>}
+          {request.type && <button type="submit">Suggest Activity</button>}
         </form>
       )}
       {loading && <p>hmmmmmm...</p>}
-      {activity.activity && <h3>Would you like to {activity.name}?</h3>}
+      {activity.activity && <h3>Would you like to {activity.activity}?</h3>}
+      {activity.error && <h3>I'm sorry, {activity.error}</h3>}
     </section>
   );
 }
