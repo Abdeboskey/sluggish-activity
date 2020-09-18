@@ -9,15 +9,15 @@ const TextBubble = () => {
   const [request, setRequest] = useState({
     solo: false,
     withOthers: false,
-    participants: 0,
     type: ''
   })
 
   const suggestActivity = async (event) => {
     event.preventDefault()
     setLoading(true)
+    const type = request.type === 'any' ? '' : request.type
     try {
-      const activity = await getActivity(request.participants, request.type)
+      const activity = await getActivity(request.withOthers, type)
       setActivity({...activity})
     } catch (error) {
       setActivity({})
@@ -51,7 +51,6 @@ const TextBubble = () => {
                   ...request,
                   solo: !request.solo,
                   withOthers: false,
-                  participants: 0
                 })
               }
             />
@@ -73,24 +72,6 @@ const TextBubble = () => {
             />
           </label>
           <br />
-          {request.withOthers && (
-            <label htmlFor="participants">
-              How Many Friends? (2-5):
-              <input
-                type="number"
-                name="participants"
-                min="2"
-                max="5"
-                onChange={(event) =>
-                  setRequest({
-                    ...request,
-                    participants: +event.target.value,
-                  })
-                }
-              />
-            </label>
-          )}
-          <br />
           {(request.solo || request.withOthers) && (
             <label htmlFor="type">
               Type of Activity:
@@ -102,7 +83,7 @@ const TextBubble = () => {
                   type: event.target.value
                 })}>
                 <option value="">Please choose one</option>
-                <option value="">Any</option>
+                <option value="any">Any</option>
                 <option value="education">Education</option>
                 <option value="recreational">Recreational</option>
                 <option value="social">Social</option>
@@ -120,8 +101,8 @@ const TextBubble = () => {
         </form>
       )}
       {loading && <p>hmmmmmm...</p>}
-      {activity.activity && <h3>Would you like to {activity.activity}?</h3>}
-      {activity.error && <h3>I'm sorry, {activity.error}</h3>}
+      {activity.activity && <h3>What if you {activity.activity}?</h3>}
+      {(activity.error || error.error )&& <h3>I'm sorry, {activity.error || error.error}</h3>}
     </section>
   );
 }
