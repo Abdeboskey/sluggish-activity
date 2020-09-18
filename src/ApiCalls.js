@@ -1,7 +1,7 @@
-const activityBase = 'http://www.boredapi.com/api/activity?'
+const activityBase = 'http://www.boredapi.com/api/activity?';
 
-export const getActivity = (participants, type) => {
-  const numPeople = participants ? `participants=${participants}&` : '';
+export const getActivity = (withOthers, type) => {
+  const numPeople = withOthers ? `minparticipants=2&maxparticipants=8&` : '';
   const activityType = type ? `type=${type}` : '';
   return fetch(`${activityBase}${numPeople}${activityType}`)
     .then(response => {
