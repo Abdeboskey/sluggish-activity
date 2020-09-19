@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import classes from './TextBubble.module.scss'
 import { getActivity } from '../../ApiCalls'
+import ActivityPrompts from '../ActivityPrompts/ActivityPrompts'
 import Participants from '../Participants/Participants'
 import ActivityType from '../ActivityType/ActivityType'
 import ActivityButtons from '../ActivityButtons/ActivityButtons'
-import ActivityPrompts from '../ActivityPrompts/ActivityPrompts'
 
 const TextBubble = () => {
   const [loading, setLoading] = useState(false)
