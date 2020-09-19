@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const ActivityPrompts = ({ solo, withOthers }) => {
   return (
@@ -17,3 +18,8 @@ const ActivityPrompts = ({ solo, withOthers }) => {
 }
 
 export default ActivityPrompts
+
+ActivityPrompts.propTypes = {
+  solo: PropTypes.bool,
+  withOthers: PropTypes.bool,
+}
