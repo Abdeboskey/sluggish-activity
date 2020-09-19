@@ -3,6 +3,7 @@ import classes from './TextBubble.module.scss'
 import { getActivity } from '../../ApiCalls'
 import Participants from '../Participants/Participants'
 import ActivityType from '../ActivityType/ActivityType'
+import ActivityButtons from '../ActivityButtons/ActivityButtons'
 
 const TextBubble = () => {
   const [loading, setLoading] = useState(false)
@@ -83,14 +84,11 @@ const TextBubble = () => {
       )}
       {loading && <p>hmmmmmm...</p>}
       {(activity.activity && !loading) &&
-        <>
-          <h3>What if you {activity.activity.toLowerCase()}?</h3>
-          <button>Thanks! I'll try that.</button>
-          {activity.activity.includes('stargazing') && 
-            <button>Can we do that together?</button>}
-          <button onClick={suggestActivity}>Can you suggest something else?</button>
-          <button onClick={startOver}>Can I start over?</button>
-        </>
+        <ActivityButtons 
+          activity={activity.activity}
+          suggestActivity={suggestActivity}
+          startOver={startOver}
+        />
       }
       {(activity.error || error.error )&& <h3>I'm sorry, {activity.error || error.error}</h3>}
     </section>
