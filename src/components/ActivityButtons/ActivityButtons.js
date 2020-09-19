@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './ActivityButtons.module.scss'
+import PropTypes from 'prop-types'
 
 const ActivityButtons = ({ activity, suggestActivity, startOver }) => {
   return (
@@ -24,3 +25,9 @@ const ActivityButtons = ({ activity, suggestActivity, startOver }) => {
 }
 
 export default ActivityButtons
+
+ActivityButtons.propTypes = {
+  activity: PropTypes.string,
+  suggestActivity: PropTypes.func,
+  startOver: PropTypes.func,
+}
