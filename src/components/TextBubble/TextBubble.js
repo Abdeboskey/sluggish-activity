@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import classes from './TextBubble.module.scss'
 import { getActivity } from '../../ApiCalls'
+import Participants from '../Participants/Participants'
 
 const TextBubble = () => {
   const [loading, setLoading] = useState(false)
@@ -68,25 +69,11 @@ const TextBubble = () => {
           <h3>
             What kind of activity would you like to do?
           </h3>}
-          <label htmlFor="solo">
-            By Myself:
-            <input
-              name="solo"
-              type="checkbox"
-              checked={form.solo}
-              onChange={() => selectParticipants('solo')}
-            />
-          </label>
-          <br />
-          <label htmlFor="withOthers">
-            With Company:
-            <input
-              name="withOthers"
-              type="checkbox"
-              checked={form.withOthers}
-              onChange={() => selectParticipants('withOthers')}
-            />
-          </label>
+          <Participants
+            solo={form.solo}
+            withOthers={form.withOthers}
+            selectParticipants={selectParticipants}
+          />
           <br />
           {(form.solo || form.withOthers) && (
             <label htmlFor="type">
