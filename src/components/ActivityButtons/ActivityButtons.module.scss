@@ -1,0 +1,21 @@
+.btnBar {
+  display: flex;
+  width: 75%;
+  justify-content: space-evenly;
+}
+
+.activityBtn {
+  cursor: pointer;
+  height: 2em;
+  border-top: none;
+  border-left: none;
+  background: none;
+  outline: none;
+  border-radius: 1em;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.452);
+  transition: all .15s ease-in-out;
+  
+  &:hover {
+    background: rgba(117, 221, 255, 0.342);
+  }
+}
