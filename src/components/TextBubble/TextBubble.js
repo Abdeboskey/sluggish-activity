@@ -4,6 +4,7 @@ import { getActivity } from '../../ApiCalls'
 import Participants from '../Participants/Participants'
 import ActivityType from '../ActivityType/ActivityType'
 import ActivityButtons from '../ActivityButtons/ActivityButtons'
+import ActivityPrompts from '../ActivityPrompts/ActivityPrompts'
 
 const TextBubble = () => {
   const [loading, setLoading] = useState(false)
@@ -18,8 +19,8 @@ const TextBubble = () => {
   const selectParticipants = count => {
     setForm({
       ...form,
-      solo: count === 'solo' ? true : false,
-      withOthers: count === 'withOthers' ? true : false,
+      solo: count === 'solo' ? !form.solo : false,
+      withOthers: count === 'withOthers' ? !form.withOthers : false,
     })
   }
   
@@ -61,16 +62,7 @@ const TextBubble = () => {
       <h2>Oh, Hi friend!</h2>
       {!activity.activity && (
         <form onSubmit={suggestActivity}>
-          {(!form.solo && !form.withOthers) &&
-          <h3>
-            Would you like to do something by yourself
-            <br />
-            or would you like some company?
-          </h3>}
-          {(form.solo || form.withOthers) &&
-          <h3>
-            What kind of activity would you like to do?
-          </h3>}
+          <ActivityPrompts solo={form.solo} withOthers={form.withOthers} />
           <Participants
             solo={form.solo}
             withOthers={form.withOthers}
@@ -83,14 +75,16 @@ const TextBubble = () => {
         </form>
       )}
       {loading && <p>hmmmmmm...</p>}
-      {(activity.activity && !loading) &&
+      {(activity.activity && !loading) && (
         <ActivityButtons 
           activity={activity.activity}
           suggestActivity={suggestActivity}
           startOver={startOver}
         />
-      }
-      {(activity.error || error.error )&& <h3>I'm sorry, {activity.error || error.error}</h3>}
+      )}
+      {(activity.error || error.error ) && (
+        <h3>I'm sorry, {activity.error || error.error}</h3>
+      )}
     </section>
   )
 }
