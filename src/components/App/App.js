@@ -13,5 +13,3 @@ function App() {
 }
 
 export default App;
-
-// give something else the className App-Logo
