@@ -1,7 +1,7 @@
-import React from 'react';
-import ChalkSlug from '../ChalkSlug/ChalkSlug';
+import React from 'react'
+import ChalkSlug from '../ChalkSlug/ChalkSlug'
 import TextBubble from '../TextBubble/TextBubble'
-import classes from './App.module.scss';
+import classes from './App.module.scss'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <TextBubble />
       <ChalkSlug />
     </main>
-  );
+  )
 }
 
 export default App;
