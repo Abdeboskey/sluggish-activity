@@ -29,7 +29,7 @@ const TextBubble = () => {
     })
   }
   
-  const startOver = (event) => {
+  const startOver = event => {
     event.preventDefault()
     setForm({
       solo: false,
@@ -94,7 +94,7 @@ const TextBubble = () => {
       }
       {(activity.error || error.error )&& <h3>I'm sorry, {activity.error || error.error}</h3>}
     </section>
-  );
+  )
 }
 
 export default TextBubble;
