@@ -60,7 +60,7 @@ const TextBubble = () => {
 
   return (
     <section className={classes.TextBubble}>
-      <h2>Oh, Hi friend!</h2>
+      <h2>Let's find an activity!</h2>
       {!activity.activity && (
         <form onSubmit={suggestActivity}>
           <ActivityPrompts solo={form.solo} withOthers={form.withOthers} />
