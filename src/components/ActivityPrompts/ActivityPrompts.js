@@ -5,8 +5,7 @@ const ActivityPrompts = ({ solo, withOthers }) => {
     <>
       {!solo && !withOthers && (
         <h3>
-          Would you like to do something by yourself
-          <br />
+          Would you like to do something by yourself<br />
           or would you like some company?
         </h3>
       )}
