@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import classes from './TextBubble.module.scss'
 import { getActivity } from '../../ApiCalls'
 
@@ -11,8 +11,24 @@ const TextBubble = () => {
     withOthers: false,
     type: ''
   })
-
-  const startOver = () => {
+  
+  const selectParticipants = count => {
+    setForm({
+      ...form,
+      solo: count === 'solo' ? true : false,
+      withOthers: count === 'withOthers' ? true : false,
+    })
+  }
+  
+  const selectType = event => {
+    setForm({
+      ...form,
+      type: event.target.value,
+    })
+  }
+  
+  const startOver = (event) => {
+    event.preventDefault()
     setForm({
       solo: false,
       withOthers: false,
@@ -20,7 +36,6 @@ const TextBubble = () => {
     })
     setActivity({})
   }
-  // to pass hook methods, maybe you need to build a local method that keeps it scoped here, and pass the new method?
 
   const suggestActivity = async (event) => {
     event.preventDefault()
@@ -45,7 +60,8 @@ const TextBubble = () => {
         <form onSubmit={suggestActivity}>
           {(!form.solo && !form.withOthers) &&
           <h3>
-            Would you like to do something by yourself <br />
+            Would you like to do something by yourself
+            <br />
             or would you like some company?
           </h3>}
           {(form.solo || form.withOthers) &&
@@ -58,13 +74,7 @@ const TextBubble = () => {
               name="solo"
               type="checkbox"
               checked={form.solo}
-              onChange={() =>
-                setForm({
-                  ...form,
-                  solo: !form.solo,
-                  withOthers: false,
-                })
-              }
+              onChange={() => selectParticipants('solo')}
             />
           </label>
           <br />
@@ -74,13 +84,7 @@ const TextBubble = () => {
               name="withOthers"
               type="checkbox"
               checked={form.withOthers}
-              onChange={() =>
-                setForm({
-                  ...form,
-                  solo: false,
-                  withOthers: !form.withOthers,
-                })
-              }
+              onChange={() => selectParticipants('withOthers')}
             />
           </label>
           <br />
@@ -90,10 +94,7 @@ const TextBubble = () => {
               <select 
                 name="type" 
                 value={form.type} 
-                onChange={event => setForm({
-                  ...form,
-                  type: event.target.value
-                })}>
+                onChange={event => selectType(event)}>
                 <option value="">Please choose one</option>
                 <option value="any">Any</option>
                 <option value="education">Education</option>
