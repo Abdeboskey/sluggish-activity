@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const ActivityType = ({ solo, withOthers, type, selectType }) => {
   return (
@@ -48,3 +49,10 @@ const ActivityType = ({ solo, withOthers, type, selectType }) => {
 }
 
 export default ActivityType
+
+ActivityType.propTypes = {
+  solo: PropTypes.bool,
+  withOthers: PropTypes.bool, 
+  type: PropTypes.string,
+  selectType: PropTypes.func,
+}
