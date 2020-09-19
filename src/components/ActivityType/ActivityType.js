@@ -25,7 +25,7 @@ const ActivityType = ({ type, selectType }) => {
       </label>
       <br />
     </>
-  );
+  )
 }
 
 export default ActivityType

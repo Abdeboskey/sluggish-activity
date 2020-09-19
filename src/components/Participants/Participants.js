@@ -22,6 +22,7 @@ const Participants = ({ solo, withOthers, selectParticipants }) => {
           onChange={() => selectParticipants("withOthers")}
         />
       </label>
+      <br />
     </>
   )
 }
