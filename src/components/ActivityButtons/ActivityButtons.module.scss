@@ -7,12 +7,13 @@
 .activityBtn {
   cursor: pointer;
   height: 2em;
+  border: 2px solid grey;
   border-top: none;
   border-left: none;
   background: none;
   outline: none;
   border-radius: 1em;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.452);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.452);
   transition: all .15s ease-in-out;
   
   &:hover {
