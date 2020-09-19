@@ -76,10 +76,7 @@ const TextBubble = () => {
             selectType={selectType}
           />
           {form.type && 
-            <button
-              className={classes.submitBtn}
-              type="submit"
-            >
+            <button className={classes.submitBtn} type="submit">
               Suggest Activity
             </button>
           }
