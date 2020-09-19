@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 import chalk_slug from '../../assets/chalk_slug.png'
 import classes from './ChalkSlug.module.scss'
 
