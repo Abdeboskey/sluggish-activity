@@ -21,6 +21,7 @@ const TextBubble = () => {
       ...form,
       solo: count === 'solo' ? !form.solo : false,
       withOthers: count === 'withOthers' ? !form.withOthers : false,
+      type: ''
     })
   }
   
@@ -68,10 +69,20 @@ const TextBubble = () => {
             withOthers={form.withOthers}
             selectParticipants={selectParticipants}
           />
-          {(form.solo || form.withOthers) && (
-          <ActivityType type={form.type} selectType={selectType} />
-          )}
-          {form.type && <button type="submit">Suggest Activity</button>}
+          <ActivityType
+            solo={form.solo}
+            withOthers={form.withOthers}
+            type={form.type}
+            selectType={selectType}
+          />
+          {form.type && 
+            <button
+              className={classes.submitBtn}
+              type="submit"
+            >
+              Suggest Activity
+            </button>
+          }
         </form>
       )}
       {loading && <p>hmmmmmm...</p>}
