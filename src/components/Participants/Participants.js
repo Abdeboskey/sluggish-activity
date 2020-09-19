@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Participants = ({ solo, withOthers, selectParticipants }) => {
   return (
@@ -28,3 +29,9 @@ const Participants = ({ solo, withOthers, selectParticipants }) => {
 }
 
 export default Participants
+
+Participants.propTypes = {
+  solo: PropTypes.bool,
+  withOthers: PropTypes.bool,
+  selectParticipants: PropTypes.func,
+}
