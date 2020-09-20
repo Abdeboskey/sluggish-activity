@@ -36,7 +36,7 @@ describe('Participants', () => {
           selectParticipants={mockSelectParticipants}
         />
       </MemoryRouter>
-    );
+    )
     
     const options = getAllByRole('checkbox')
     fireEvent.click(options[0])
@@ -55,7 +55,7 @@ describe('Participants', () => {
           selectParticipants={mockSelectParticipants}
         />
       </MemoryRouter>
-    );
+    )
     
     const options = getAllByRole('checkbox')
     fireEvent.click(options[1])
