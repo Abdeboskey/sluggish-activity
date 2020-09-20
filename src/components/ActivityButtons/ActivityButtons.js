@@ -4,13 +4,17 @@ import PropTypes from 'prop-types'
 import { DateTime } from 'luxon'
 
 const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
+
   const saveActivity = () => {
     const activityToSave = {
       date: DateTime.local().toLocaleString(),
       description: activity,
       link: link || null,
     }
-    
+    addToLocalStorage(activityToSave)
+  }
+  
+  const addToLocalStorage = (activityToSave) => {
     if (localStorage.getItem('savedActivities') === null) {
       let activities = [activityToSave]
       localStorage.setItem('savedActivities', JSON.stringify(activities))
