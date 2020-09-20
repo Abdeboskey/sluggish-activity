@@ -27,7 +27,7 @@ describe('ActivityButtons', () => {
     expect(startOverButton).toBeInTheDocument()
   })
 
-  it('should fire suggestActivity when the \'suggest something else\' button is clicked',  () => {
+  it('should fire suggestActivity when the \'Suggest Something Else\' button is clicked',  () => {
     const mockSuggestActivity = jest.fn()
     const startOver = jest.fn()
     const { getByRole } = render(
@@ -44,5 +44,24 @@ describe('ActivityButtons', () => {
     fireEvent.click(refreshButton)
 
     expect(mockSuggestActivity).toHaveBeenCalledTimes(1)
+  })
+
+  it('should fire startOver when the \'Start Over\' button is clicked',  () => {
+    const mockSuggestActivity = jest.fn()
+    const startOver = jest.fn()
+    const { getByRole } = render(
+      <MemoryRouter>
+        <ActivityButtons
+          activity={"Learn to Yo-Yo"}
+          suggestActivity={mockSuggestActivity}
+          startOver={startOver}
+        />
+      </MemoryRouter>
+    )
+
+    const startOverButton = getByRole("button", { name: /start over?/i });
+    fireEvent.click(startOverButton)
+
+    expect(startOver).toHaveBeenCalledTimes(1)
   })
 })
