@@ -2,10 +2,11 @@ import React from 'react'
 import classes from './ActivityButtons.module.scss'
 import PropTypes from 'prop-types'
 
-const ActivityButtons = ({ activity, suggestActivity, startOver }) => {
+const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
   return (
     <>
       <h3>What if you {activity[0].toLowerCase() + activity.substring(1)}?</h3>
+      {link && <h4>Check it out <a href={link} target='_blank'>here!</a></h4>}
       <div className={classes.btnBar}>
         <button className={classes.activityBtn}>Thanks! I'll try that.</button>
         {activity.includes("stargazing") && (
