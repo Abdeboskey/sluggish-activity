@@ -10,7 +10,7 @@ const ActivityType = ({ solo, withOthers, type, selectType }) => {
           <select
             name="type"
             value={type}
-            onChange={(event) => selectType(event)}
+            onChange={(event) => selectType(event.target.value)}
           >
             <option value="">Please choose one</option>
             <option value="any">Any</option>
@@ -32,7 +32,7 @@ const ActivityType = ({ solo, withOthers, type, selectType }) => {
           <select
             name="type"
             value={type}
-            onChange={(event) => selectType(event)}
+            onChange={(event) => selectType(event.target.value)}
           >
             <option value="">Please choose one</option>
             <option value="any">Any</option>
