@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const ActivityButtons = ({ activity, suggestActivity, startOver }) => {
   return (
     <>
-      <h3>What if you {activity.toLowerCase()}?</h3>
+      <h3>What if you {activity[0].toLowerCase() + activity.substring(1)}?</h3>
       <div className={classes.btnBar}>
         <button className={classes.activityBtn}>Thanks! I'll try that.</button>
         {activity.includes("stargazing") && (
