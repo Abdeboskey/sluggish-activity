@@ -25,10 +25,10 @@ const TextBubble = () => {
     })
   }
   
-  const selectType = event => {
+  const selectType = selection => {
     setForm({
       ...form,
-      type: event.target.value,
+      type: selection,
     })
   }
   
