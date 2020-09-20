@@ -64,4 +64,6 @@ describe('ActivityButtons', () => {
 
     expect(startOver).toHaveBeenCalledTimes(1)
   })
+
+  // Will need test for 'Thanks I'll try that' button when function to save to localStorage is built
 })
