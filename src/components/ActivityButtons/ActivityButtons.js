@@ -37,7 +37,7 @@ const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
         <>
           <h3>What if you {activity[0].toLowerCase() + activity.substring(1)}?</h3>
           {link && 
-          <h4>Check it out 
+          <h4>Check it out{' '}
             <a href={link} target='_blank' rel="noopener noreferrer">here!</a>
           </h4>}
           <div className={classes.btnBar}>
