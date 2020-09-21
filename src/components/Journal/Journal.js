@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './Journal.module.scss'
 import { getFromLocalStorage } from '../../localStorageCalls'
+import { Link } from 'react-router-dom'
 
 const Journal = () => {
 
@@ -37,8 +38,11 @@ const Journal = () => {
       <h2>My Journal</h2>
       <h3>Activities I've tried:</h3>
       <ul className={classes.activityList}>{makeActivityList()}</ul>
+      <Link to="/">
+        <button className={classes.goBack}>Go Back</button>
+      </Link>
     </section>
-  )
+  );
 }
 
 export default Journal;
