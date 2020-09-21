@@ -6,6 +6,10 @@ const Home = () => {
   return (
     <section className={classes.HomeView}>
       <h2>What can I do for you today, friend?</h2>
+      <h4>
+        I can help you find something to do, 
+        and keep track of the things you've tried in your journal.
+      </h4>
       <div className={classes.btnBar}>
         <Link to="/activity">
           <button className={classes.answerBtn}>Find an Activity</button>
