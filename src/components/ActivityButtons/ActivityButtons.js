@@ -5,7 +5,8 @@ import { DateTime } from 'luxon'
 import { Link } from 'react-router-dom'
 
 const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
-const [ saved, setSaved ] = useState(false)
+  const [ saved, setSaved ] = useState(false)
+
   const saveActivity = () => {
     const activityToSave = {
       date: DateTime.local().toLocaleString(),
@@ -86,6 +87,7 @@ export default ActivityButtons
 
 ActivityButtons.propTypes = {
   activity: PropTypes.string,
+  link: PropTypes.string,
   suggestActivity: PropTypes.func,
   startOver: PropTypes.func,
 }
