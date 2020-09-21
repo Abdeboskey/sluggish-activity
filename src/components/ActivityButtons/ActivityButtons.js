@@ -61,23 +61,25 @@ const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
       {saved && (
         <>
           <h3>Ok! I'll add "{activity}" to your activity journal.</h3>
-          <Link to="/journal">
+          <div className={classes.btnBar}>
+            <Link to="/journal">
+              <button
+                className={classes.journalBtn}
+                onClick={() => setSaved(false)}
+              >
+                View My Journal
+              </button>
+            </Link>
             <button
               className={classes.activityBtn}
-              onClick={() => setSaved(false)}
+              onClick={(event) => {
+                startOver(event)
+                setSaved(false)
+              }}
             >
-              View My Journal
+              Pick Another Activity
             </button>
-          </Link>
-          <button
-            className={classes.activityBtn}
-            onClick={(event) => {
-              startOver(event)
-              setSaved(false)
-            }}
-          >
-            Pick Another Activity
-          </button>
+          </div>
         </>
       )}
     </>
