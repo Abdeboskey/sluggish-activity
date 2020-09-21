@@ -5,6 +5,24 @@ import { MemoryRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
 
 describe('ActivityButtons', () => {
+  it('should display an activity if one has been passed in via props', () => {
+    const suggestActivity = jest.fn()
+    const startOver = jest.fn()
+    const { getByRole } = render(
+      <MemoryRouter>
+        <ActivityButtons
+          activity={"Learn to Yo-Yo"}
+          suggestActivity={suggestActivity}
+          startOver={startOver}
+        />
+      </MemoryRouter>
+    )
+
+    const activitySuggestion = getByRole('heading', { name: /learn to yo-yo/i})
+
+    expect(activitySuggestion).toBeInTheDocument()
+  })
+
   it('should give a user options to try an activity, get a new one, and start over', () => {
     const suggestActivity = jest.fn()
     const startOver = jest.fn()
@@ -65,5 +83,23 @@ describe('ActivityButtons', () => {
     expect(startOver).toHaveBeenCalledTimes(1)
   })
 
-  // Will need test for 'Thanks I'll try that' button when function to save to localStorage is built
+  it('should fire saveActivity when the \'Thanks, I\'ll Try That\' button is clicked',  () => {
+    const mockSaveActivity = jest.fn()
+    const mockSuggestActivity = jest.fn()
+    const startOver = jest.fn()
+    const { getByRole } = render(
+      <MemoryRouter>
+        <ActivityButtons
+          activity={"Learn to Yo-Yo"}
+          suggestActivity={mockSuggestActivity}
+          startOver={startOver}
+        />
+      </MemoryRouter>
+    )
+
+    const saveActivityButton = getByRole("button", { name: /thanks! i\'ll try that/i })
+    fireEvent.click(saveActivityButton)
+
+  })
+
 })
