@@ -3,6 +3,7 @@ import classes from './ActivityButtons.module.scss'
 import PropTypes from 'prop-types'
 import { DateTime } from 'luxon'
 import { Link } from 'react-router-dom'
+import { getFromLocalStorage } from '../../localStorageCalls'
 
 const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
   const [ saved, setSaved ] = useState(false)
@@ -17,7 +18,7 @@ const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
   }
   
   const addToLocalStorage = (activityToSave) => {
-    let activities = localStorage.getItem('savedActivities')
+    let activities = getFromLocalStorage('savedActivities')
     if (activities === null) {
       activities = [activityToSave]
       localStorage.setItem('savedActivities', JSON.stringify(activities))
