@@ -12,3 +12,9 @@
   @include btn-style;
   width: 100%;
 }
+
+.goHomeBtn {
+  @include btn-style;
+  margin-left: 2em;
+  width: 35%;
+}
