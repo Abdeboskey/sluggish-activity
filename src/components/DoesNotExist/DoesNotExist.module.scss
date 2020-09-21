@@ -1,0 +1,11 @@
+@import '../../styles/shared.scss';
+
+.DoesNotExist {
+  @include bubble-background;
+}
+
+.goBack {
+  @include btn-style;
+  margin-left: 2em;
+  width: 25%;
+}
