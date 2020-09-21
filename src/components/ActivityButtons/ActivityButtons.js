@@ -32,7 +32,10 @@ const [ saved, setSaved ] = useState(false)
       {!saved && (
         <>
           <h3>What if you {activity[0].toLowerCase() + activity.substring(1)}?</h3>
-          {link && <h4>Check it out <a href={link} target='_blank'>here!</a></h4>}
+          {link && 
+          <h4>Check it out 
+            <a href={link} target='_blank' rel="noopener noreferrer">here!</a>
+          </h4>}
           <div className={classes.btnBar}>
             <button className={classes.activityBtn} onClick={saveActivity}>
               Thanks! I'll try that.
