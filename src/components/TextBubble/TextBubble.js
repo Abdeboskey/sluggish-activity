@@ -86,6 +86,7 @@ const TextBubble = () => {
       {(activity.activity && !loading) && (
         <ActivityButtons 
           activity={activity.activity}
+          link={activity.link}
           suggestActivity={suggestActivity}
           startOver={startOver}
         />

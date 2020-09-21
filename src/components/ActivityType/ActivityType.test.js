@@ -49,26 +49,22 @@ describe('ActivityType', () => {
     expect(activityOptions).toHaveLength(6)
   })
 
-  it.skip('should fire the selectType function when an activity type is selected', () => {
-    const type = ''
-    const mockSelectType = jest.fn((event) => {
-      event.preventDefault()
-      type = event.target.value
-    })
+  it('should fire the selectType function when an activity type is selected', () => {
+    const mockSelectType = jest.fn()
     const { getByRole } = render(
       <MemoryRouter>
         <ActivityType
           solo={true}
           withOthers={false}
-          type={type}
+          type={''}
           selectType={mockSelectType}
         />
       </MemoryRouter>
     )
 
-    const relaxationOption = getByRole('option', { name: /relaxation/i})
+    const selectActivity = getByRole('combobox')
 
-    fireEvent.click(relaxationOption)
+    fireEvent.change(selectActivity, { target: { value: 'relaxation' } })
 
     expect(mockSelectType).toHaveBeenCalledTimes(1)
     expect(mockSelectType).toHaveBeenCalledWith('relaxation')
