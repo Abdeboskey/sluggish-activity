@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import classes from './ActivityButtons.module.scss'
 import PropTypes from 'prop-types'
 import { DateTime } from 'luxon'
+import { Link } from 'react-router-dom'
 
 const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
 const [ saved, setSaved ] = useState(false)
@@ -58,15 +59,14 @@ const [ saved, setSaved ] = useState(false)
       {saved && (
         <>
           <h3>Ok! I'll add "{activity}" to your activity journal.</h3>
-          <button
-            className={classes.activityBtn}
-            onClick={(event) => {
-              startOver(event)
-              setSaved(false)
-            }}
-          >
-            View My Journal
-          </button>
+          <Link to="/journal">
+            <button
+              className={classes.activityBtn}
+              onClick={() => setSaved(false)}
+            >
+              View My Journal
+            </button>
+          </Link>
           <button
             className={classes.activityBtn}
             onClick={(event) => {
