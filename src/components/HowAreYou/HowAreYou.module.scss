@@ -6,6 +6,12 @@
   padding: 0 2em 0 2em;
 }
 
+.btnBar {
+  display: flex;
+  width: 75%;
+  justify-content: space-evenly;
+}
+
 .answerBtn {
   cursor: pointer;
   height: 2em;
