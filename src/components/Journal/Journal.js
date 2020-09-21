@@ -11,15 +11,22 @@ const Journal = () => {
       activities = JSON.parse(activities)
       return activities.map((activity, index) => {
         return (
-          <li key={index}>
+          <li className={classes.activity} key={index}>
             <p className={classes.date}>{activity.date} -</p>
             <p className={classes.description}>{activity.description}</p>
-            {activity.link &&
-              <a href={activity.link} target='_blank'>Check it out!</a>
-            }
-            <br />
+            {activity.link && (
+              <p>
+                <a
+                  href={activity.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Check it out!
+                </a>
+              </p>
+            )}
           </li>
-        )
+        );
       })
     }
   }
@@ -28,7 +35,7 @@ const Journal = () => {
     <section className={classes.Journal}>
       <h2>My Journal</h2>
       <h3>Activities I've tried:</h3>
-      <ul>{makeActivityList()}</ul>
+      <ul className={classes.activityList}>{makeActivityList()}</ul>
     </section>
   )
 }
