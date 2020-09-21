@@ -12,10 +12,10 @@ const Home = () => {
       </h4>
       <div className={classes.btnBar}>
         <Link to="/activity">
-          <button className={classes.answerBtn}>Find an Activity</button>
+          <button className={classes.activityBtn}>Find an Activity</button>
         </Link>
         <Link to="/journal">
-          <button className={classes.answerBtn}>Look at My Journal</button>
+          <button className={classes.journalBtn}>Look at My Journal</button>
         </Link>
         {/* <Link>
           <button className={classes.answerBtn}>Let's Go Stargazing</button>
