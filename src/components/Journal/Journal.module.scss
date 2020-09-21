@@ -3,6 +3,7 @@
 .Journal {
   @include bubble-background;
   height: 77vh;
+  overflow: scroll;
 }
 
 .activityList {
