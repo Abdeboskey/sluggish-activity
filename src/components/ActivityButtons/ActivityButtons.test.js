@@ -84,7 +84,6 @@ describe('ActivityButtons', () => {
   })
 
   it('should fire saveActivity when the \'Thanks, I\'ll Try That\' button is clicked',  () => {
-    const mockSaveActivity = jest.fn()
     const mockSuggestActivity = jest.fn()
     const startOver = jest.fn()
     const { getByRole } = render(
@@ -100,6 +99,7 @@ describe('ActivityButtons', () => {
     const saveActivityButton = getByRole("button", { name: /thanks! i\'ll try that/i })
     fireEvent.click(saveActivityButton)
 
+    expect(getByRole('heading', { name: /to your activity journal/i})).toBeInTheDocument()
   })
 
 })
