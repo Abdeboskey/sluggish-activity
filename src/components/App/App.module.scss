@@ -1,10 +1,14 @@
 .App {
-  background-image: linear-gradient(lightblue, blue);
   min-height: 100vh;
   display: flex;
-  // flex-direction: column;
-  // align-items: center;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
 }
 
+.background {
+  width: 100vw;
+  position: fixed;
+  margin-top: -324px;
+  box-shadow: 0px 5px 30px 30px #bcef4d;
+  z-index: -1;
+}

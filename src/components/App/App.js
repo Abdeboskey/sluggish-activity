@@ -5,10 +5,12 @@ import Home from '../Home/Home'
 import Journal from '../Journal/Journal'
 import TextBubble from '../TextBubble/TextBubble'
 import classes from './App.module.scss'
+import sunnyField from '../../assets/sunnyField.jpg'
 
 function App() {
   return (
     <main className={classes.App}>
+      <img className={classes.background} src={sunnyField} alt="A Sunny Field with Butterflies"/>
       <Route
         exact path="/"
         render={() => <Home />}

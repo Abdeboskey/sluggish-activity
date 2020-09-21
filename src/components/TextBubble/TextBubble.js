@@ -75,27 +75,27 @@ const TextBubble = () => {
             type={form.type}
             selectType={selectType}
           />
-          {form.type && 
+          {form.type && (
             <button className={classes.submitBtn} type="submit">
               Suggest Activity
             </button>
-          }
+          )}
         </form>
       )}
       {loading && <p>hmmmmmm...</p>}
-      {(activity.activity && !loading) && (
-        <ActivityButtons 
+      {activity.activity && !loading && (
+        <ActivityButtons
           activity={activity.activity}
           link={activity.link}
           suggestActivity={suggestActivity}
           startOver={startOver}
         />
       )}
-      {(activity.error || error.error ) && (
+      {(activity.error || error.error) && (
         <h3>I'm sorry, {activity.error || error.error}</h3>
       )}
     </section>
-  )
+  );
 }
 
 export default TextBubble;

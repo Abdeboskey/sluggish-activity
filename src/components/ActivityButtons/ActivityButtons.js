@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import classes from './ActivityButtons.module.scss'
 import PropTypes from 'prop-types'
 import { DateTime } from 'luxon'
+import { Link } from 'react-router-dom'
+import { getFromLocalStorage } from '../../localStorageCalls'
 
 const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
-const [ saved, setSaved ] = useState(false)
+  const [ saved, setSaved ] = useState(false)
+
   const saveActivity = () => {
     const activityToSave = {
       date: DateTime.local().toLocaleString(),
@@ -15,12 +18,13 @@ const [ saved, setSaved ] = useState(false)
   }
   
   const addToLocalStorage = (activityToSave) => {
-    if (localStorage.getItem('savedActivities') === null) {
-      let activities = [activityToSave]
+    let activities = getFromLocalStorage('savedActivities')
+    if (activities === null) {
+      activities = [activityToSave]
       localStorage.setItem('savedActivities', JSON.stringify(activities))
       setSaved(true)
     } else {
-      const activities = JSON.parse(localStorage.getItem('savedActivities'))
+      activities = JSON.parse(activities)
       activities.push(activityToSave)
       localStorage.setItem('savedActivities', JSON.stringify(activities))
       setSaved(true)
@@ -33,7 +37,7 @@ const [ saved, setSaved ] = useState(false)
         <>
           <h3>What if you {activity[0].toLowerCase() + activity.substring(1)}?</h3>
           {link && 
-          <h4>Check it out 
+          <h4>Check it out{' '}
             <a href={link} target='_blank' rel="noopener noreferrer">here!</a>
           </h4>}
           <div className={classes.btnBar}>
@@ -58,24 +62,25 @@ const [ saved, setSaved ] = useState(false)
       {saved && (
         <>
           <h3>Ok! I'll add "{activity}" to your activity journal.</h3>
-          <button
-            className={classes.activityBtn}
-            onClick={(event) => {
-              startOver(event)
-              setSaved(false)
-            }}
-          >
-            View My Journal
-          </button>
-          <button
-            className={classes.activityBtn}
-            onClick={(event) => {
-              startOver(event)
-              setSaved(false)
-            }}
-          >
-            Pick Another Activity
-          </button>
+          <div className={classes.btnBar}>
+            <Link to="/journal">
+              <button
+                className={classes.journalBtn}
+                onClick={() => setSaved(false)}
+              >
+                View My Journal
+              </button>
+            </Link>
+            <button
+              className={classes.activityBtn}
+              onClick={(event) => {
+                startOver(event)
+                setSaved(false)
+              }}
+            >
+              Pick Another Activity
+            </button>
+          </div>
         </>
       )}
     </>
@@ -86,6 +91,7 @@ export default ActivityButtons
 
 ActivityButtons.propTypes = {
   activity: PropTypes.string,
+  link: PropTypes.string,
   suggestActivity: PropTypes.func,
   startOver: PropTypes.func,
 }
