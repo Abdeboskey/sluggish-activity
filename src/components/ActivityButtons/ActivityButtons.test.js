@@ -39,10 +39,13 @@ describe('ActivityButtons', () => {
     const saveButton = getByRole('button', { name: /thanks! i'll try that/i})
     const refreshButton = getByRole('button', { name: /something else?/i})
     const startOverButton = getByRole('button', { name: /start over?/i})
+    const goHomeButton = getByRole("button", { name: /go home/i });
+
 
     expect(saveButton).toBeInTheDocument()
     expect(refreshButton).toBeInTheDocument()
     expect(startOverButton).toBeInTheDocument()
+    expect(goHomeButton).toBeInTheDocument()
   })
 
   it('should fire suggestActivity when the \'Suggest Something Else\' button is clicked',  () => {
@@ -100,6 +103,31 @@ describe('ActivityButtons', () => {
     fireEvent.click(saveActivityButton)
 
     expect(getByRole('heading', { name: /to your activity journal/i})).toBeInTheDocument()
+  })
+
+  it('should show new buttons when the saveActivity button has been clicked',  () => {
+    const mockSuggestActivity = jest.fn()
+    const startOver = jest.fn()
+    const { getByRole } = render(
+      <MemoryRouter>
+        <ActivityButtons
+          activity={"Learn to Yo-Yo"}
+          suggestActivity={mockSuggestActivity}
+          startOver={startOver}
+        />
+      </MemoryRouter>
+    )
+
+    const saveActivityButton = getByRole("button", { name: /thanks! i\'ll try that/i })
+    fireEvent.click(saveActivityButton)
+    
+    const viewJournalButton = getByRole('button', { name: /view my journal/i })
+    const anotherActivityButton = getByRole('button', { name: /pick another activity/i })
+    const goHomeButton = getByRole('button', { name: /go home/i })
+
+    expect(viewJournalButton).toBeInTheDocument()
+    expect(anotherActivityButton).toBeInTheDocument()
+    expect(goHomeButton).toBeInTheDocument()
   })
 
 })
