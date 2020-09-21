@@ -17,12 +17,13 @@ const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
   }
   
   const addToLocalStorage = (activityToSave) => {
-    if (localStorage.getItem('savedActivities') === null) {
-      let activities = [activityToSave]
+    let activities = localStorage.getItem('savedActivities')
+    if (activities === null) {
+      activities = [activityToSave]
       localStorage.setItem('savedActivities', JSON.stringify(activities))
       setSaved(true)
     } else {
-      const activities = JSON.parse(localStorage.getItem('savedActivities'))
+      activities = JSON.parse(activities)
       activities.push(activityToSave)
       localStorage.setItem('savedActivities', JSON.stringify(activities))
       setSaved(true)
