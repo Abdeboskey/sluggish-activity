@@ -1,10 +1,11 @@
 import React from 'react'
 import classes from './Journal.module.scss'
+import { getFromLocalStorage } from '../../localStorageCalls'
 
 const Journal = () => {
 
   const makeActivityList = () => {
-    let activities = localStorage.getItem('savedActivities')
+    let activities = getFromLocalStorage('savedActivities')
     if (!activities) {
       return <h4>I'm sorry, I don't think you've logged any activities yet</h4>
     } else {
