@@ -1,8 +1,14 @@
 .App {
-  background-image: linear-gradient(lightblue, blue);
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
+}
+
+.background {
+  width: 100vw;
+  position: fixed;
+  margin-top: -324px;
+  z-index: -1;
 }
 
