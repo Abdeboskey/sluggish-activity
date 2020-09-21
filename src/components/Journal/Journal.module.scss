@@ -1,11 +1,8 @@
+@import '../../styles/shared.scss';
+
 .Journal {
-  width: 50%;
+  @include bubble-background;
   height: 77vh;
-  background-color: white;
-  border-radius: 2em;
-  margin: 2em 0 5em 5em;
-  padding: 0 2em 0 2em;
-  overflow: scroll;
 }
 
 .activityList {
