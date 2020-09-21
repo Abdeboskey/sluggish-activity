@@ -2,6 +2,7 @@ import React from 'react'
 import Home from './Home'
 import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import '@testing-library/jest-dom'
 
 describe('Home', () => {
   it('should display the correct elements when rendered', () => {
