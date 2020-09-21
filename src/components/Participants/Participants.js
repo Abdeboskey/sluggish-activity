@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classes from './Participants.module.scss'
 
 const Participants = ({ solo, withOthers, selectParticipants }) => {
   return (
@@ -7,6 +8,7 @@ const Participants = ({ solo, withOthers, selectParticipants }) => {
       <label htmlFor="solo">
         By Myself:
         <input
+          className={classes.checkbox}
           name="solo"
           type="checkbox"
           checked={solo}
