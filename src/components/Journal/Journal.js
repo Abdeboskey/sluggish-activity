@@ -12,8 +12,8 @@ const Journal = () => {
       return activities.map((activity, index) => {
         return (
           <li className={classes.activity} key={index}>
-            <p className={classes.date}>{activity.date} -</p>
-            <p className={classes.description}>{activity.description}</p>
+            <p>{activity.date} -</p>
+            <p>{activity.description}</p>
             {activity.link && (
               <p>
                 <a
