@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classes from './ActivityType.module.scss'
 
 const ActivityType = ({ solo, withOthers, type, selectType }) => {
   return (
     <>
-      {solo &&
+      {solo && (
         <label htmlFor="type">
           Type of Activity:
           <select
+            className={classes.dropdown}
             name="type"
             value={type}
             onChange={(event) => selectType(event.target.value)}
@@ -25,11 +27,12 @@ const ActivityType = ({ solo, withOthers, type, selectType }) => {
             <option value="busywork">Busywork</option>
           </select>
         </label>
-      }
-      {withOthers &&
+      )}
+      {withOthers && (
         <label htmlFor="type">
           Type of Activity:
           <select
+            className={classes.dropdown}
             name="type"
             value={type}
             onChange={(event) => selectType(event.target.value)}
@@ -42,10 +45,10 @@ const ActivityType = ({ solo, withOthers, type, selectType }) => {
             <option value="music">Music</option>
           </select>
         </label>
-      }
+      )}
       <br />
     </>
-  )
+  );
 }
 
 export default ActivityType
