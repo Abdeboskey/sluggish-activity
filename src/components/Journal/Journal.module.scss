@@ -2,8 +2,9 @@
 
 .Journal {
   @include bubble-background;
-  height: 77vh;
+  height: 69.4vh;
   overflow: scroll;
+  padding-bottom: 2em;
 }
 
 .activityList {
@@ -12,4 +13,10 @@
 
 .activity {
   margin-bottom: 2em;
+}
+
+.goBack {
+  @include btn-style;
+  margin-left: 2em;
+  width: 25%;
 }
