@@ -1,6 +1,6 @@
 # Sluggish Activity
 
-Sluggish Activity is an application that helps encourage users who are feeling sluggish, stuck, down, or who just don't know what to do with their free time.
+Sluggish Activity is an application that helps encourage and assist users who are feeling sluggish, stuck, down, or who just don't know what to do with their free time.
 Users can interact with a friendly snail, who can collect some information about what kind of activity they're interested in and suggest things to do. If a user likes a suggestion, the snail can record that activity in their journal, where activities are organized by date. 
 
 This was the final solo front-end project for module 3 of Turing School of Software and Design's 2008 inning. This project was a summation of all that had been taught this module and technologies used in this project include:
@@ -18,7 +18,7 @@ This was the final solo front-end project for module 3 of Turing School of Softw
 - Clone the repo using `git clone git@github.com:Abdeboskey/sluggish-activity.git`.
 - Run `npm install` in the root of the newly created directory to install the necessary dependencies.
 - Running `npm start` in your terminal should launch the application in your browser. If not, navigate to `http://localhost:3000/` to view the application in action.
-- Run `npm test` to run the test suite for this application. 
+- Run `npm test` in the terminal to run the test suite for this application. 
 
 ## Application in Action!
 ![Sluggish Activity User Cycle](./src/assets/appInAction.gif)
