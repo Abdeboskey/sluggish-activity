@@ -1,6 +1,9 @@
 import React from 'react'
 import classes from './HowAreYou.module.scss'
 
+// This component is not currently implemented, but would be a future feature that 
+// checks in with the user about their feelings, and allows them to journal about it. 
+
 const HowAreYou = () => {
   return (
     <section className={classes.HowAreYou}>
