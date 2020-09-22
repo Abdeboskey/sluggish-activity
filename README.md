@@ -18,7 +18,7 @@ This was the final solo front-end project for module 3 of Turing School of Softw
 - Clone the repo using `git clone git@github.com:Abdeboskey/sluggish-activity.git`.
 - Run `npm install` in the root of the newly created directory to install the necessary dependencies.
 - Running `npm start` in your terminal should launch the application in your browser. If not, navigate to `http://localhost:3000/` to view the application in action.
-- Run `npm test` to run the test suite for this application. 
+- Run `npm test` in the terminal to run the test suite for this application. 
 
 ## Wins/Challenges
 #### Wins
