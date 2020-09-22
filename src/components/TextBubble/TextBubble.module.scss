@@ -2,6 +2,7 @@
 
 .TextBubble {
   @include bubble-background;
+  height: 65vh;
 }
 
 .submitBtn {

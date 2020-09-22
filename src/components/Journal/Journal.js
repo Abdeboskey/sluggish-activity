@@ -39,7 +39,7 @@ const Journal = () => {
       <h3>Activities I've tried:</h3>
       <ul className={classes.activityList}>{makeActivityList()}</ul>
       <Link to="/">
-        <button className={classes.goBack}>Go Back</button>
+        <button className={classes.goBack}>Go Home</button>
       </Link>
     </section>
   );

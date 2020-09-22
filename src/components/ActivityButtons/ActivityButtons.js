@@ -35,20 +35,26 @@ const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
     <>
       {!saved && (
         <>
-          <h3>What if you {activity[0].toLowerCase() + activity.substring(1)}?</h3>
-          {link && 
-          <h4>Check it out{' '}
-            <a href={link} target='_blank' rel="noopener noreferrer">here!</a>
-          </h4>}
+          <h3>
+            What if you {activity[0].toLowerCase() + activity.substring(1)}?
+          </h3>
+          {link && (
+            <h4>
+              Check it out{" "}
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                here!
+              </a>
+            </h4>
+          )}
           <div className={classes.btnBar}>
             <button className={classes.activityBtn} onClick={saveActivity}>
               Thanks! I'll try that.
             </button>
-            {activity.includes("stargazing") && (
+            {/*activity.includes("stargazing") && (
               <button className={classes.activityBtn}>
                 Can we do that together?
               </button>
-            )}
+            )*/}
             <button className={classes.activityBtn} onClick={suggestActivity}>
               Can you suggest something else?
             </button>
@@ -56,6 +62,13 @@ const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
               Can I start over?
             </button>
           </div>
+          <Link to="/">
+            <button
+              className={classes.goHomeBtn}
+            >
+              Can I Go Home?
+            </button>
+          </Link>
           <br />
         </>
       )}
@@ -74,12 +87,20 @@ const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
             <button
               className={classes.activityBtn}
               onClick={(event) => {
-                startOver(event)
-                setSaved(false)
+                startOver(event);
+                setSaved(false);
               }}
             >
               Pick Another Activity
             </button>
+            <Link to="/">
+              <button
+                className={classes.journalBtn}
+                onClick={() => setSaved(false)}
+              >
+                Go Home
+              </button>
+            </Link>
           </div>
         </>
       )}
