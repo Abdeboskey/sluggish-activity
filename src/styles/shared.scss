@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Grandstander:wght@200;400&display=swap');
+
+$main-font: 'Grandstander';
+$handwriting: 'Architects Daughter';
+
 @mixin bubble-background {
   width: 50%;
   background-color: rgba(255, 255, 255, 0.801);
@@ -6,6 +11,7 @@
   padding: .5em 2em 0 2em;
   box-shadow: -5px 3px 5px rgba(0, 0, 0, 0.582);
   transition: all .15s ease-in-out;
+  font-family: $main-font;
 }
 
 @mixin btn-style {
@@ -18,6 +24,8 @@
   outline: none;
   border-radius: 2em;
   box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.452);
+  font-family: $main-font;
+  font-size: .65em;
   transition: all .15s ease-in-out;
   
   &:hover {
@@ -28,8 +36,8 @@
 @mixin btn-bar {
   display: flex;
   flex-direction: column;
-  width: 35%;
-  height: 25%;
+  width: 40%;
+  height: 30%;
   justify-content: space-evenly;
   margin-left: 1em;
 }
