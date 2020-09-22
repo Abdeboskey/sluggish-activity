@@ -7,7 +7,7 @@ const Home = () => {
     <section className={classes.HomeView}>
       <h1>Oh, Hi!</h1>
       <h2>What can I do for you today, friend?</h2>
-      <h4>
+      <h4 className={classes.prompt}>
         I can help you find something to do if you're feeling sluggish, 
         and I'll keep track of the things you've tried in your journal.
       </h4>
