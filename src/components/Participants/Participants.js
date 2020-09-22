@@ -5,7 +5,7 @@ import classes from './Participants.module.scss'
 const Participants = ({ solo, withOthers, selectParticipants }) => {
   return (
     <>
-      <label htmlFor="solo">
+      <label htmlFor="solo" className={classes.label}>
         By Myself:
         <input
           className={classes.checkbox}
@@ -16,7 +16,8 @@ const Participants = ({ solo, withOthers, selectParticipants }) => {
         />
       </label>
       <br />
-      <label htmlFor="withOthers">
+      <br />
+      <label htmlFor="withOthers" className={classes.label}>
         With Company:
         <input
           name="withOthers"
@@ -26,8 +27,9 @@ const Participants = ({ solo, withOthers, selectParticipants }) => {
         />
       </label>
       <br />
+      <br />
     </>
-  )
+  );
 }
 
 export default Participants
