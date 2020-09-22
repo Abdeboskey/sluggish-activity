@@ -20,6 +20,9 @@ This was the final solo front-end project for module 3 of Turing School of Softw
 - Running `npm start` in your terminal should launch the application in your browser. If not, navigate to `http://localhost:3000/` to view the application in action.
 - Run `npm test` to run the test suite for this application. 
 
+## Application in Action!
+![Sluggish Activity User Cycle](./src/assets/appInAction.gif)
+
 ## Wins/Challenges
 #### Wins
 * Accomplished extensive test coverage including unit tests, implementation and integration level testing. 
