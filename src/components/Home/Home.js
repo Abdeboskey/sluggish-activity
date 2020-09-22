@@ -18,7 +18,9 @@ const Home = () => {
         <Link to="/journal">
           <button className={classes.journalBtn}>Look at My Journal</button>
         </Link>
-        {/* <Link>
+        {/* This is a future feature that will also give the user the ability to 
+            view NASA's photo of the day with the snail if they would like.
+        <Link>
           <button className={classes.stargazeBtn}>Let's Go Stargazing</button>
         </Link> */}
       </div>
