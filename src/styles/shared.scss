@@ -1,10 +1,11 @@
 @mixin bubble-background {
   width: 50%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.801);
   border-radius: 2em;
   margin: 1.5em 0 5em 5em;
   padding: .5em 2em 0 2em;
   box-shadow: -5px 3px 5px rgba(0, 0, 0, 0.582);
+  transition: all .15s ease-in-out;
 }
 
 @mixin btn-style {
