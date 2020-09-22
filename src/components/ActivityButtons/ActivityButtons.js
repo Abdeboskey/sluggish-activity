@@ -50,11 +50,11 @@ const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
             <button className={classes.activityBtn} onClick={saveActivity}>
               Thanks! I'll try that.
             </button>
-            {activity.includes("stargazing") && (
+            {/*activity.includes("stargazing") && (
               <button className={classes.activityBtn}>
                 Can we do that together?
               </button>
-            )}
+            )*/}
             <button className={classes.activityBtn} onClick={suggestActivity}>
               Can you suggest something else?
             </button>
@@ -66,7 +66,7 @@ const ActivityButtons = ({ activity, link, suggestActivity, startOver }) => {
             <button
               className={classes.goHomeBtn}
             >
-              Go Home
+              Can I Go Home?
             </button>
           </Link>
           <br />
