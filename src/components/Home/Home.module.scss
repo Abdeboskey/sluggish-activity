@@ -5,6 +5,10 @@
   height: 65vh;
 }
 
+.prompt {
+  line-height: 130%;
+}
+
 .btnBar {
   @include btn-bar;
 }
