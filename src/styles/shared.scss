@@ -3,6 +3,15 @@
 $main-font: 'Grandstander';
 $handwriting: 'Architects Daughter';
 
+@mixin sunny-background {
+  background-image: url('../assets/sunnyField.jpg');
+  background-position: center 90%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #81d44a;
+}
+
 @mixin bubble-background {
   width: 50%;
   background-color: rgba(255, 255, 255, 0.801);
