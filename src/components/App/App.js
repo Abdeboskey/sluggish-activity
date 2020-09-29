@@ -6,7 +6,6 @@ import Journal from '../Journal/Journal'
 import TextBubble from '../TextBubble/TextBubble'
 import DoesNotExist from '../DoesNotExist/DoesNotExist'
 import classes from './App.module.scss'
-import sunnyField from '../../assets/sunnyField.jpg'
 
 function App() {
   return (
