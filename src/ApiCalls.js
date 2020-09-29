@@ -1,4 +1,4 @@
-const activityBase = 'http://www.boredapi.com/api/activity?';
+const activityBase = 'https://www.boredapi.com/api/activity?';
 
 export const getActivity = (withOthers, type) => {
   const numPeople = withOthers ? `minparticipants=2&maxparticipants=8&` : '';
