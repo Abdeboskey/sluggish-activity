@@ -11,7 +11,6 @@ import sunnyField from '../../assets/sunnyField.jpg'
 function App() {
   return (
     <main className={classes.App}>
-      <img className={classes.background} src={sunnyField} alt="A Sunny Field with Butterflies"/>
       <Switch>
         <Route
           exact path="/"
