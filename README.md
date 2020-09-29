@@ -38,4 +38,4 @@ This was the final solo front-end project for module 3 of Turing School of Softw
 #### In the future, users would be able to:
 * Choose to go stargazing with the friendly snail (using NASA's photo of the day API), who knows a surprising amount about the cosmos.
 * Have the friendly snail greet the user with an emotional check in and ask if you would like to write about your emotional state in your journal, which would be saved and be accesible later like the activities.
-* Review activities that you have tried in your activity journal. 
+* Add reviews to activities that you have tried in your activity journal. 
