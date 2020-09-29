@@ -22,6 +22,8 @@ This was the final solo front-end project for module 3 of Turing School of Softw
 - Run `npm test` in the terminal to run the test suite for this application. 
 
 ## Application in Action!
+* Sluggish Activity can be viewed in deployment on Heroku [here](https://sluggish-activity.herokuapp.com/).
+* Meanwhile, here is a preview of a typical user experience:
 ![Sluggish Activity User Cycle](./src/assets/appInAction.gif)
 
 ## Wins/Challenges
