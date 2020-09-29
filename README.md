@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Abdeboskey/sluggish-activity.svg?branch=master)](https://travis-ci.org/Abdeboskey/sluggish-activity)
 # Sluggish Activity
 
 Sluggish Activity is an application that helps encourage and assist users who are feeling sluggish, stuck, down, or who just don't know what to do with their free time.
